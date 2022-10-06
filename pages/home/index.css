@@ -1,1 +1,66 @@
 /* Desenvolva sua estilização aqui... */
+.header{
+ min-height: 49.344rem;
+ width: 100%;
+ background-color: aqua;
+ padding-top: 6.25rem;
+ display: flex;
+ flex-direction: column;
+ gap: 3.75rem;
+}
+
+.img_logo{
+    height: 1.438rem;
+    width: 12.063rem;
+}
+
+.header_description{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.main_general{
+    padding-top: 3.25rem;
+    background-color: var(--color-grey-5);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.colun-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ul_list_vacancies{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.li_list_vacancies{
+    background-color: var(--color-grey-6);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-default);
+}
+
+.li_list_vacancies_header{
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+}
+
+.div_company_and_city{
+    display: flex;
+    gap: 2rem;
+}
+
+.li_list_vacancies_footer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
