@@ -36,14 +36,13 @@ img {
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--color-grey-5);
 }
 
 .container {
-  width: 76rem;
+  width: 1400px;
   max-width: 100%;
   margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 @media(max-width: 991px){
@@ -52,5 +51,12 @@ body {
     --title-2: calc(2.5rem / 1.2);
     --title-3: calc(2rem / 1.2);
     --text-1:  calc(1.125rem / 1.2);
+  }
+  .container {
+    width: 76rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

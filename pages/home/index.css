@@ -1,12 +1,21 @@
-/* Desenvolva sua estilização aqui... */
-.header{
- min-height: 49.344rem;
- width: 100%;
- background-color: aqua;
- padding-top: 6.25rem;
- display: flex;
- flex-direction: column;
- gap: 3.75rem;
+/* MOBILE FIRST */
+ .header{
+    max-height: 49.125rem;
+    width: 100%;
+    background-image: url("../../assets/img/background_mobile.png");
+    background-position: center;
+    padding-top: 6.25rem;
+    padding-bottom: 6.25rem;
+}
+@media(min-width: 390px){
+    .header{
+        background-image: url("../../assets/img/background_desktop.png");
+    }
+}
+.div_header{
+    display: flex;
+    flex-direction: column;
+    gap: 3.75rem;
 }
 
 .img_logo{
@@ -21,11 +30,17 @@
 }
 .main_general{
     padding-top: 3.25rem;
-    background-color: var(--color-grey-5);
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; 
+}
+.main_coluns{
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-}
+} 
+
 .colun-right{
     display: flex;
     flex-direction: column;
@@ -38,29 +53,66 @@
     gap: 2rem;
 }
 
-.li_list_vacancies{
-    background-color: var(--color-grey-6);
+.colun-left{
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
-    padding: 1.25rem;
+    gap:2.25rem;
+    background-color:var(--color-grey-6);
     border-radius: var(--radius-default);
 }
 
-.li_list_vacancies_header{
+.title_left{
+    padding: 2rem 1.25rem;
+}
+
+.empty_place{
     display: flex;
     flex-direction: column;
-    gap: 1.125rem;
-}
+    gap:1.688rem;
+    padding: 1.25rem;
+} 
 
-.div_company_and_city{
-    display: flex;
-    gap: 2rem;
-}
+@media(min-width: 991px){
+    .header{
+        height: 45.938rem;
+        width: 100%;
+        background-image: url("../../assets/img/background_desktop.png");
+    }
+    
+    .header_description{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .main_general{
+      display: flex;
+      position: relative;  
+    }
+    .main_coluns{
+        display: flex;
+        flex-direction: row;
+        gap: 78px;
+    }
+    .colun-right{
+        width: 70%;
+    }
+    .li_bigCards{
+        padding: 2.375rem;
+    } 
+    .li_list_vacancies_footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .colun-left{
+        position: sticky;
+        top: 20px;
+        width: 30%;
+    }
+    
+  }
 
-.li_list_vacancies_footer{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
+  .hidden{
+    display: none;
+  }
