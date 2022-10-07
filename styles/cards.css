@@ -32,6 +32,10 @@
     padding: 2rem 1.25rem;
 }
 
+.li_smallCards:hover{
+    background-color: var(--color-grey-4);
+}
+
 .header_mini_card{
     display: flex;
     gap: 0.75rem;
