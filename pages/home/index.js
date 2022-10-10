@@ -1,24 +1,13 @@
-/* 
-Utilizar método map()
-Utilizar método filter()
-Utilizar método find()
-Utilizar spread operador
-Persistir dados no Localstorage 
+function getJobsFavoritesLocation() {
+    return JSON.parse(localStorage.getItem("@webWoman:jobsFavorites")) || []
+}
 
-renderizar - 
-renderizar os cards de jobs - ok
-renderizar os mini cards - ok
-evento de botão - 
-    - inserir uma vaga no carrinho - ok
-    - transformar o texto do bigcard - em REMOVER VAGA - ok 
-    (falta fazer ele voltar a ficar como CADIDATAR qndo retiro o item do carrinho)
-    - botão remover vaga no próprio minicard 
-Persistir os dados no Localstorage - dados carrinho
-*/
+const ulListBigCards = document.querySelector(".ul_list_vacancies")
+const ulListSmallCards = document.querySelector(".ul_card_list")
+let arraySmall = []
 
 function renderJobs_BigCards(array){
-    const ulListBigCards = document.querySelector(".ul_list_vacancies")
-
+   
     ulListBigCards.innerHTML = ""
 
     array.forEach((Bigcard, index) => {
@@ -64,9 +53,20 @@ function createCard(Bigcard){
     tagButton.innerText = "Candidatar"
 
     tagButton.addEventListener("click", ()=>{
+        
+        let verSeProdutoExiste = arraySmall.find((element)=>
+            element.id == id
+        )
+        if(verSeProdutoExiste){
+            tagButton.innerText = "Candidatar"
+            remove(id)
 
-        tagButton.innerText = "Remover candidatura"
-        renderJobs_SmallCards(id, Bigcard)
+        }else{
+            tagButton.innerText = "Remover candidatura"
+            arraySmall.push(Bigcard)
+            renderJobs_SmallCards(arraySmall)
+        }
+        
     })
     
     tagLi.append(tagDivLiHeader, tagPDesciption, tagDivLiFooter)
@@ -76,35 +76,21 @@ function createCard(Bigcard){
     
     return tagLi
 }
-
 renderJobs_BigCards(jobsData)
 
-function renderJobs_SmallCards(idCardClicked, Bigcard){
 
-    const {id, title, enterprise, location, descrition, modalities} = Bigcard
-    const ul_MiniCard = document.querySelector(".ul_card_list").insertAdjacentHTML("beforeend", `
-        <li id="${id}" class="li_smallCards">
-        <div class="header_mini_card">
-        <h3 class="title5">${title}</h3>
-        <img class="trash" src="../../assets/img/trash.svg" alt="">
-        </div>
-        <div class="div_company_and_city">
-        <p class="text3">${enterprise}</p>
-        <p class="text3">${location}</p>
-        </div>
-    </li>
-        `)
+function empty(array){
+    let emptyPlace = document.querySelector(".empty_place")
 
-    const buttonBigCard = document.getElementById(idCardClicked)
-    const buttonSmallCard = document.querySelector(".trash")
-    buttonBigCard.addEventListener("click", ()=>{
-        ul_MiniCard.remove(Bigcard)
-        renderJobs_SmallCards(jobsData)
-    })
-    buttonSmallCard.addEventListener("click", ()=>{
-        ul_MiniCard.remove(Bigcard)
-        renderJobs_SmallCards(jobsData)
-    })
+    if(array.length){
+        emptyPlace.classList.add("hidden")
+    }else{
+        emptyPlace.classList.remove("hidden")
+    }
 }
+
+empty(arraySmall)
+
+
 
 

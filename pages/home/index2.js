@@ -1,6 +1,19 @@
-const {id, title, enterprise, location, descrition, modalities} = Bigcard
+const ulListBigCards = document.querySelector(".ul_list_vacancies")
+function renderJobs_BigCards(array){
 
-        /* document.querySelector(".ul_list_vacancies").insertAdjacentHTML("beforeend", `
+    ulListBigCards.innerHTML = ""
+
+    array.forEach((Bigcard, index) => {
+        const {id, title, enterprise, location, descrition, modalities} = Bigcard
+       /*  const card = createCard(Bigcard, index); */
+        ${modalities.map((e) =>{
+                    let p = document.createElement("p")
+                    p.classList = "text3"
+                    p.innerText = e
+        
+                    return p
+                })}
+       ulListBigCards.insertAdjacentHTML("beforeend", `
             <li class="li_bigCards">
                 <div class="li_list_vacancies_header">
                 <h3 class="title4">${title}</h3>
@@ -15,4 +28,8 @@ const {id, title, enterprise, location, descrition, modalities} = Bigcard
                 <button class="button_medium">Candidatar</button>
                 </div>
             </li>
-        `) */
+        `) 
+    });
+}
+        
+renderJobs_BigCards(jobsData)
