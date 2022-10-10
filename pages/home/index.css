@@ -92,10 +92,10 @@
     .main_coluns{
         display: flex;
         flex-direction: row;
-        gap: 78px;
+        gap: 60px;
     }
     .colun-right{
-        width: 70%;
+        width: 65%;
     }
     .li_bigCards{
         padding: 2.375rem;
@@ -108,7 +108,7 @@
     .colun-left{
         position: sticky;
         top: 20px;
-        width: 30%;
+        width: 35%;
     }
     
   }
