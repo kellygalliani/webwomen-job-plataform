@@ -2,9 +2,28 @@ function getJobsFavoritesLocation() {
     return JSON.parse(localStorage.getItem("@webWoman:jobsFavorites")) || []
 }
 
+let arraySmall = getJobsFavoritesLocation()
+arraySmall
+
 const ulListBigCards = document.querySelector(".ul_list_vacancies")
 const ulListSmallCards = document.querySelector(".ul_card_list")
-let arraySmall = []
+
+if(JSON.parse(localStorage.getItem("@webWoman:jobsFavorites"))){
+    renderJobs_SmallCards(arraySmall)
+    button()
+}
+
+function button(){
+    arraySmall.forEach((job)=>{
+        let existJob = jobsData.includes(job)
+        console.log(existJob)
+        if(existJob){
+          const button = document.querySelector(".button_medium")
+          button.innerText = "Remover candidatura"  
+        } 
+    })
+}
+//let arraySmall = []
 
 function renderJobs_BigCards(array){
    
@@ -28,7 +47,9 @@ function createCard(Bigcard){
     const tagPCity = document.createElement("p")
     const tagPDesciption = document.createElement("p")
     const tagDivLiFooter = document.createElement("div")
+    const tagDivModalities = document.createElement("div")
     const tagTag = document.createElement("p")
+    const tagTag2 = document.createElement("p")
     const tagButton = document.createElement("button")
     
     tagLi.classList = "li_bigCards"
@@ -39,7 +60,9 @@ function createCard(Bigcard){
     tagPCity.classList = "text3"
     tagPDesciption.classList = "text2"
     tagDivLiFooter.classList = "li_list_vacancies_footer"
-    tagTag.classList = "text3", "tag_vacancies"
+    tagDivModalities.classList.add("modalities")
+    tagTag.classList.add("text3", "tag_vacancies")
+    tagTag2.classList.add("text3", "tag_vacancies")  
     tagButton.classList = "button_medium"
     tagButton.id = id
 
@@ -47,9 +70,11 @@ function createCard(Bigcard){
     tagPCompany.innerText = enterprise
     tagPCity.innerText = location
     tagPDesciption.innerText = descrition
-    modalities.forEach((modality)=>{
+    /* modalities.forEach((modality)=>{
         tagTag.innerText = modality
-    })
+    }) */
+    tagTag.innerText = modalities[0]
+    tagTag2.innerText = modalities[1]
     tagButton.innerText = "Candidatar"
 
     tagButton.addEventListener("click", ()=>{
@@ -64,6 +89,7 @@ function createCard(Bigcard){
         }else{
             tagButton.innerText = "Remover candidatura"
             arraySmall.push(Bigcard)
+            
             renderJobs_SmallCards(arraySmall)
         }
         
@@ -72,7 +98,8 @@ function createCard(Bigcard){
     tagLi.append(tagDivLiHeader, tagPDesciption, tagDivLiFooter)
     tagDivLiHeader.append(tagH3Title, tagDivCompanyCity)
     tagDivCompanyCity.append(tagPCompany, tagPCity)
-    tagDivLiFooter.append(tagTag, tagButton)
+    tagDivLiFooter.append(tagDivModalities, tagButton)
+    tagDivModalities.append(tagTag, tagTag2)
     
     return tagLi
 }

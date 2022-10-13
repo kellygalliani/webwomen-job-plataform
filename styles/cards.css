@@ -24,6 +24,14 @@
     gap: 2rem;
 }
 
+.modalities{
+    display: flex;
+    
+    justify-content: flex-start;
+    gap: 5px;
+    width: 255px;
+}
+
 .li_smallCards{
     display: flex;
     flex-direction: column;

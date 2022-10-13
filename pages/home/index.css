@@ -102,7 +102,7 @@
     } 
     .li_list_vacancies_footer{
         display: flex;
-        flex-direction: row;
+        flex-direction: row !important;
         justify-content: space-between;
     }
     .colun-left{

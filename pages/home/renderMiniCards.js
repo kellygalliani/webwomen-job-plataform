@@ -1,14 +1,14 @@
 function renderJobs_SmallCards(array){
     
     ulListSmallCards.innerHTML = ""
-
+    //arraySmall = getJobsFavoritesLocation()
     array.forEach((smallCard, index) => {
         const card = credMiniCards(smallCard, index);
         console.log(card)
         ulListSmallCards.appendChild(card);
         empty(arraySmall)
     });
-    
+    localStorage.setItem("@webWoman:jobsFavorites", JSON.stringify(arraySmall))
 }
 
 function credMiniCards(smallCard){
@@ -46,4 +46,9 @@ function credMiniCards(smallCard){
 
         return tagLIm
 }
-renderJobs_SmallCards(arraySmall)
+
+/* function button(arrayData, arraySmall){
+    arrayData.
+    if( == )
+} */
+//renderJobs_SmallCards(arraySmall)
