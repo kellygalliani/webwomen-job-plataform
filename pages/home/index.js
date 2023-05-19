@@ -1,9 +1,11 @@
+window.addEventListener("load", ()=>{
+
+})
 function getJobsFavoritesLocation() {
     return JSON.parse(localStorage.getItem("@webWoman:jobsFavorites")) || []
 }
 
 let arraySmall = getJobsFavoritesLocation()
-arraySmall
 
 const ulListBigCards = document.querySelector(".ul_list_vacancies")
 const ulListSmallCards = document.querySelector(".ul_card_list")
@@ -16,14 +18,13 @@ if(JSON.parse(localStorage.getItem("@webWoman:jobsFavorites"))){
 function button(){
     arraySmall.forEach((job)=>{
         let existJob = jobsData.includes(job)
-        console.log(existJob)
+        
         if(existJob){
           const button = document.querySelector(".button_medium")
           button.innerText = "Remover candidatura"  
         } 
     })
 }
-//let arraySmall = []
 
 function renderJobs_BigCards(array){
    
@@ -70,9 +71,6 @@ function createCard(Bigcard){
     tagPCompany.innerText = enterprise
     tagPCity.innerText = location
     tagPDesciption.innerText = descrition
-    /* modalities.forEach((modality)=>{
-        tagTag.innerText = modality
-    }) */
     tagTag.innerText = modalities[0]
     tagTag2.innerText = modalities[1]
     tagButton.innerText = "Candidatar"

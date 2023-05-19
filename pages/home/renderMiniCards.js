@@ -4,7 +4,6 @@ function renderJobs_SmallCards(array){
     //arraySmall = getJobsFavoritesLocation()
     array.forEach((smallCard, index) => {
         const card = credMiniCards(smallCard, index);
-        console.log(card)
         ulListSmallCards.appendChild(card);
         empty(arraySmall)
     });
